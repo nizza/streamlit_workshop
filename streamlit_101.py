@@ -933,7 +933,7 @@ try:
    # Make a histogram (distribution chart) if it is numeric variable
    if df[var].dtype in ['float64', 'int64']:
        st.subheader(f"Distribution of {var}")
-       fig = sns.histplot(data=df, x=var, hue='survived')
+       fig = sns.histplot(data=df, x=var, hue='survived', multiple="dodge")
        st.pyplot(fig.figure)
 
    # Make a barchart if it is categorical variable
