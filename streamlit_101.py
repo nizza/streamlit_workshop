@@ -944,7 +944,6 @@ try:
 
 except Exception as e:
    st.error(f"Error: {str(e)}")
-   st.write("Please check if the URL is valid and points to a CSV file.")
 
 
 
