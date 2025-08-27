@@ -946,7 +946,7 @@ try:
    # Make a barchart if it is categorical variable
    else:
        st.subheader(f"Count plot of {var}")
-       fig = sns.countplot(data=df..dropna(subset=var), x=var, hue='survived', palette='Pastel1')
+       fig = sns.countplot(data=df.dropna(subset=var), x=var, hue='survived', palette='Pastel1')
        st.pyplot(fig.figure)
 
 except Exception as e:
