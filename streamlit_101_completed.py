@@ -936,7 +936,7 @@ try:
    if df[var].dtype in ['float64', 'int64']:
        fig, axs = plt.subplots(1,2,figsize=(10,5))
        st.subheader(f"Distribution and Regression of {var}")
-       sns.histplot(data=df, x=var, hue='survived',  multiple="dodge", ax=axs[0])
+       sns.histplot(data=df.dropna(subset=var), x=var, hue='survived',  multiple="dodge", ax=axs[0])
        sns.regplot(data=df, x=var, y='survived'
                   , color=".3", line_kws=dict(color="r"), scatter_kws=dict(alpha=0.2)
                   , ax=axs[1])
@@ -946,7 +946,7 @@ try:
    # Make a barchart if it is categorical variable
    else:
        st.subheader(f"Count plot of {var}")
-       fig = sns.countplot(data=df, x=var, hue='survived', palette='Pastel1')
+       fig = sns.countplot(data=df..dropna(subset=var), x=var, hue='survived', palette='Pastel1')
        st.pyplot(fig.figure)
 
 except Exception as e:

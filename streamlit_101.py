@@ -933,13 +933,13 @@ try:
    # Make a histogram (distribution chart) if it is numeric variable
    if df[var].dtype in ['float64', 'int64']:
        st.subheader(f"Distribution of {var}")
-       fig = sns.histplot(data=df, x=var, hue='survived', multiple="dodge")
+       fig = sns.histplot(data=df.dropna(subset=var), x=var, hue='survived', multiple="dodge")
        st.pyplot(fig.figure)
 
    # Make a barchart if it is categorical variable
    else:
        st.subheader(f"Count plot of {var}")
-       fig = sns.countplot(data=df, x=var, hue='survived')
+       fig = sns.countplot(data=df.dropna(subset=var), x=var, hue='survived')
        st.pyplot(fig.figure)
 
 except Exception as e:
